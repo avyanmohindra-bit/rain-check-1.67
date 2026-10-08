@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Monsoon Winds | Grade 7 | Social Science</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+            background: #eef9fb;
+            color: #173b4d;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 92vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 70px 20px;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, #087e8b 0%, #0a5f78 45%, #123c63 100%);
+            color: white;
+        }
+
+        .hero::before,
+        .hero::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(3px);
+            opacity: 0.25;
+        }
+
+        .hero::before {
+            width: 450px;
+            height: 450px;
+            background: #42d4d8;
+            top: -180px;
+            left: -150px;
+        }
+
+        .hero::after {
+            width: 500px;
+            height: 500px;
+            background: #ffb347;
+            right: -180px;
+            bottom: -220px;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            animation: heroEnter 1s ease forwards;
+        }
+
+        .hero-label {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid rgba(255,255,255,0.5);
+            border-radius: 30px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(8px);
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 6.5rem);
+            line-height: 1;
+            margin-bottom: 25px;
+            letter-spacing: -3px;
+        }
+
+        .hero h1 span {
+            color: #ffd166;
+        }
+
+        .hero p {
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            max-width: 720px;
+            margin: auto;
+            color: #e5faff;
+        }
+
+        .start-button {
+            display: inline-block;
+            margin-top: 35px;
+            padding: 14px 28px;
+            border-radius: 12px;
+            background: #ffd166;
+            color: #183b4d;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+        }
+
+        .start-button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 30px rgba(0,0,0,0.25);
+        }
+
+        /* =========================
+           GENERAL
+        ========================= */
+
+        .section {
+            padding: 90px 7%;
+        }
+
+        .section-heading {
+            max-width: 800px;
+            margin: 0 auto 55px;
+            text-align: center;
+        }
+
+        .section-heading .number {
+            color: #e88a18;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 0.9rem;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(2.2rem, 5vw, 3.7rem);
+            line-height: 1.15;
+            margin: 8px 0 18px;
+            color: #123c63;
+        }
+
+        .section-heading p {
+            color: #527080;
+            font-size: 1.08rem;
+        }
+
+        /* =========================
+           LEARNING CARDS
+        ========================= */
+
+        .intro-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .info-card {
+            background: white;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 10px 35px rgba(20, 76, 94, 0.09);
+            border: 1px solid #dceff2;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(20, 76, 94, 0.14);
+        }
+
+        .card-number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: #dff6f7;
+            color: #087e8b;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .info-card h3 {
+            color: #123c63;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .info-card p {
+            color: #5a7180;
+            font-size: 0.98rem;
+        }
+
+        /* =========================
+           DIFFERENTIAL HEATING
+        ========================= */
+
+        .heating-section {
+            background: #ffffff;
+        }
+
+        .heating-box {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .heating-panel {
+            border-radius: 25px;
+            padding: 35px;
+            min-height: 300px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .land-panel {
+            background: linear-gradient(145deg, #fff0c7, #ffd88a);
+        }
+
+        .water-panel {
+            background: linear-gradient(145deg, #d7f7fa, #9fe3e8);
+        }
+
+        .heating-panel h3 {
+            font-size: 1.7rem;
+            margin-bottom: 15px;
+            color: #193c4c;
+        }
+
+        .heating-panel p {
+            color: #365767;
+        }
+
+        .big-word {
+            position: absolute;
+            right: 25px;
+            bottom: 5px;
+            font-size: 4rem;
+            font-weight: bold;
+            opacity: 0.12;
+        }
+
+        .comparison {
+            max-width: 1100px;
+            margin: 35px auto 0;
+            padding: 30px;
+            background: #f1fbfc;
+            border-radius: 22px;
+            border-left: 6px solid #087e8b;
+        }
+
+        .comparison strong {
+            color: #087e8b;
+        }
+
+        /* =========================
+           MONSOON TOGGLE
+        ========================= */
+
+        .monsoon-section {
+            background:
+                linear-gradient(180deg, #eef9fb 0%, #f7fcf8 100%);
+        }
+
+        .toggle-wrapper {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .toggle-buttons {
+            display: flex;
+            background: #dceef0;
+            padding: 6px;
+            border-radius: 16px;
+            margin-bottom: 30px;
+        }
+
+        .toggle-button {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 11px;
+            cursor: pointer;
+            background: transparent;
+            font-family: inherit;
+            font-weight: bold;
+            color: #486b78;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .toggle-button.active {
+            background: white;
+            color: #087e8b;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .monsoon-content {
+            background: white;
+            border-radius: 26px;
+            padding: 40px;
+            min-height: 390px;
+            box-shadow: 0 15px 40px rgba(19, 79, 96, 0.09);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .monsoon-content.summer {
+            border-top: 7px solid #087e8b;
+        }
+
+        .monsoon-content.winter {
+            border-top: 7px solid #f0a43c;
+        }
+
+        .content-animation {
+            animation: contentSlide 0.45s ease;
+        }
+
+        .monsoon-title {
+            font-size: 2.2rem;
+            color: #123c63;
+            margin-bottom: 15px;
+        }
+
+        .monsoon-content p {
+            color: #536d79;
+            margin-bottom: 17px;
+        }
+
+        .fact-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .fact {
+            padding: 18px;
+            border-radius: 15px;
+            background: #f4fafb;
+        }
+
+        .winter .fact {
+            background: #fff7e7;
+        }
+
+        .fact strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #123c63;
+        }
+
+        /* =========================
+           WIND JOURNEY
+        ========================= */
+
+        .journey-section {
+            background: #123c63;
+            color: white;
+        }
+
+        .journey-section .section-heading h2 {
+            color: white;
+        }
+
+        .journey-section .section-heading p {
+            color: #c7e4eb;
+        }
+
+        .journey {
+            max-width: 1000px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+            gap: 15px;
+        }
+
+        .journey-step {
+            flex: 1;
+            text-align: center;
+            padding: 25px 18px;
+            border: 1px solid rgba(255,255,255,0.15);
+            border-radius: 18px;
+            background: rgba(255,255,255,0.06);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .journey-step:hover {
+            transform: translateY(-7px);
+            background: rgba(255,255,255,0.11);
+        }
+
+        .step-circle {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+            background: #ffd166;
+            color: #123c63;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .journey-step h3 {
+            margin-bottom: 8px;
+            color: #ffffff;
+        }
+
+        .journey-step p {
+            font-size: 0.9rem;
+            color: #c7e4eb;
+        }
+
+        /* =========================
+           QUIZ
+        ========================= */
+
+        .quiz-section {
+            background: #fffaf0;
+        }
+
+        .quiz-container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .quiz-card {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            margin-bottom: 25px;
+            box-shadow: 0 10px 30px rgba(115, 76, 20, 0.08);
+            border: 1px solid #f2e5cb;
+        }
+
+        .question-number {
+            font-size: 0.85rem;
+            color: #e88a18;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 7px;
+        }
+
+        .quiz-card h3 {
+            color: #233f4d;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .option {
+            width: 100%;
+            padding: 14px 18px;
+            margin: 8px 0;
+            border: 2px solid #e4edf0;
+            background: #f9fcfd;
+            border-radius: 12px;
+            text-align: left;
+            font-family: inherit;
+            font-size: 0.98rem;
+            cursor: pointer;
+            color: #355564;
+            transition: all 0.2s ease;
+        }
+
+        .option:hover:not(.disabled) {
+            border-color: #0b91a0;
+            background: #eefbfc;
+            transform: translateX(4px);
+        }
+
+        .option.correct {
+            background: #dff6e8;
+            border-color: #35a66b;
+            color: #17663e;
+        }
+
+        .option.incorrect {
+            background: #ffe2e2;
+            border-color: #d95757;
+            color: #8b2f2f;
+        }
+
+        .option.disabled {
+            cursor: default;
+        }
+
+        .quiz-feedback {
+            margin-top: 12px;
+            font-weight: bold;
+            min-height: 25px;
+        }
+
+        .quiz-progress {
+            height: 8px;
+            background: #e8e2d6;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            overflow: hidden;
+        }
+
+        .quiz-progress-bar {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #087e8b, #35b8a5);
+            transition: width 0.4s ease;
+        }
+
+        /* =========================
+           SCORE
+        ========================= */
+
+        .score-box {
+            display: none;
+            max-width: 700px;
+            margin: 35px auto 0;
+            padding: 45px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #087e8b, #14577a);
+            color: white;
+            text-align: center;
+            animation: scoreAppear 0.6s ease;
+        }
+
+        .score-box.show {
+            display: block;
+        }
+
+        .score-box h2 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .score-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffd166;
+            margin: 10px 0;
+        }
+
+        .score-box p {
+            color: #e0f7fa;
+            max-width: 550px;
+            margin: auto;
+        }
+
+        .restart-button {
+            margin-top: 25px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 10px;
+            background: #ffd166;
+            color: #173b4d;
+            font-family: inherit;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .restart-button:hover {
+            transform: translateY(-3px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #0d2e42;
+            color: #a9cbd3;
+            text-align: center;
+            padding: 35px 20px;
+            font-size: 0.9rem;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================= */
+
+        @keyframes heroEnter {
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes contentSlide {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes scoreAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.94) translateY(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(35px);
+            transition:
+                opacity 0.7s ease,
+                transform 0.7s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 850px) {
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .heating-box {
+                grid-template-columns: 1fr;
+            }
+
+            .journey {
+                flex-direction: column;
+            }
+
+            .fact-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .section {
+                padding: 65px 5%;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .monsoon-content,
+            .quiz-card {
+                padding: 25px;
+            }
+
+            .toggle-buttons {
+                flex-direction: column;
+            }
+
+            .score-box {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <div class="hero-content">
+
+            <div class="hero-label">
+                GRADE 7 SOCIAL SCIENCE
+            </div>
+
+            <h1>
+                Monsoon <span>Winds</span>
+            </h1>
+
+            <p>
+                Why does the sky suddenly seem to open up during the rainy season?
+                The answer begins with something surprisingly simple: land and
+                water do not heat up at the same speed.
+            </p>
+
+            <a href="#learn" class="start-button">
+                Start Exploring
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <!-- PART 1 -->
+    <section class="section" id="learn">
+
+        <div class="section-heading reveal">
+
+            <div class="number">
+                PART 1
+            </div>
+
+            <h2>
+                So, What Exactly Is a Monsoon?
+            </h2>
+
+            <p>
+                Think of a monsoon as a giant seasonal wind system that changes
+                direction during the year. It can bring months of heavy rain,
+                followed by a much drier season.
+            </p>
+
+        </div>
+
+
+        <div class="intro-grid">
+
+            <div class="info-card reveal">
+
+                <div class="card-number">
+                    01
+                </div>
+
+                <h3>
+                    It Is a Seasonal Wind
+                </h3>
+
+                <p>
+                    Monsoon winds are not just ordinary breezes. They change
+                    direction with the seasons. This change happens because
+                    land and water heat and cool differently.
+                </p>
+
+            </div>
+
+
+            <div class="info-card reveal">
+
+                <div class="card-number">
+                    02
+                </div>
+
+                <h3>
+                    Land Heats Quickly
+                </h3>
+
+                <p>
+                    Imagine standing on a road on a sunny afternoon. The road
+                    can become very hot very quickly. Land behaves in a similar
+                    way: it heats up faster than water.
+                </p>
+
+            </div>
+
+
+            <div class="info-card reveal">
+
+                <div class="card-number">
+                    03
+                </div>
+
+                <h3>
+                    Water Changes More Slowly
+                </h3>
+
+                <p>
+                    Now imagine jumping into a swimming pool. Even on a warm
+                    day, the water usually feels cooler than the pavement.
+                    Large bodies of water heat and cool more slowly than land.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DIFFERENTIAL HEATING -->
+    <section class="section heating-section">
+
+        <div class="section-heading reveal">
+
+            <div class="number">
+                THE BIG IDEA
+            </div>
+
+            <h2>
+                Land and Water Play by Different Rules
+            </h2>
+
+            <p>
+                This difference in heating is one of the most important pieces
+                of the monsoon puzzle.
+            </p>
+
+        </div>
+
+
+        <div class="heating-box">
+
+            <div class="heating-panel land-panel reveal">
+
+                <h3>
+                    Land
+                </h3>
+
+                <p>
+                    During summer, land gets heated strongly by the Sun.
+                    The air above the land becomes warmer and rises.
+                </p>
+
+                <p style="margin-top:15px;">
+                    As that warm air rises, it leaves behind an area of lower
+                    air pressure near the surface.
+                </p>
+
+                <div class="big-word">
+                    HOT
+                </div>
+
+            </div>
+
+
+            <div class="heating-panel water-panel reveal">
+
+                <h3>
+                    Water
+                </h3>
+
+                <p>
+                    Water takes longer to warm up. So oceans and seas can remain
+                    relatively cooler while the nearby land becomes very hot.
+                </p>
+
+                <p style="margin-top:15px;">
+                    This difference helps create a pressure pattern that causes
+                    moist air to move from the sea toward the land.
+                </p>
+
+                <div class="big-word">
+                    COOL
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="comparison reveal">
+
+            <p>
+                <strong>
+                    Here is the simple way to remember it:
+                </strong>
+
+                hot land makes air rise, and the surrounding pressure difference
+                helps pull in moist air. When that moist air rises, cools and
+                forms clouds, rain can follow.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SUMMER / WINTER TOGGLE -->
+    <section class="section monsoon-section">
+
+        <div class="section-heading reveal">
+
+            <div class="number">
+                COMPARE THE TWO
+            </div>
+
+            <h2>
+                Summer or Winter?
+            </h2>
+
+            <p>
+                Monsoon winds do not behave the same way all year. Click the
+                two seasons below and see how the story changes.
+            </p>
+
+        </div>
+
+
+        <div class="toggle-wrapper reveal">
+
+            <div class="toggle-buttons">
+
+                <button
+                    class="toggle-button active"
+                    id="summerButton"
+                    onclick="showMonsoon('summer')">
+
+                    Summer Monsoon
+
+                </button>
+
+
+                <button
+                    class="toggle-button"
+                    id="winterButton"
+                    onclick="showMonsoon('winter')">
+
+                    Winter Monsoon
+
+                </button>
+
+            </div>
+
+
+            <div
+                class="monsoon-content summer"
+                id="monsoonContent">
+
+                <div
+                    id="monsoonText"
+                    class="content-animation">
+
+                    <h2 class="monsoon-title">
+                        Summer Monsoon: The Rain-Bringer
+                    </h2>
+
+                    <p>
+                        During summer, the land becomes much hotter than the
+                        nearby ocean. The hot air above the land rises, creating
+                        lower pressure near the surface.
+                    </p>
+
+                    <p>
+                        Air from over the ocean moves toward the warmer land.
+                        Because this air has travelled over the sea, it carries
+                        lots of water vapour with it.
+                    </p>
+
+                    <p>
+                        As this moist air rises and cools, water vapour can
+                        condense into clouds. When enough water collects,
+                        we get rainfall.
+                    </p>
+
+                    <div class="fact-row">
+
+                        <div class="fact">
+                            <strong>Direction</strong>
+                            Sea toward land
+                        </div>
+
+                        <div class="fact">
+                            <strong>Air</strong>
+                            Moist and humid
+                        </div>
+
+                        <div class="fact">
+                            <strong>Result</strong>
+                            More rainfall
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WIND JOURNEY -->
+    <section class="section journey-section">
+
+        <div class="section-heading reveal">
+
+            <div class="number">
+                FOLLOW THE JOURNEY
+            </div>
+
+            <h2>
+                How Does Rainy Weather Build Up?
+            </h2>
+
+            <p>
+                Let's turn the whole process into a simple chain of events.
+            </p>
+
+        </div>
+
+
+        <div class="journey">
+
+            <div class="journey-step reveal">
+
+                <div class="step-circle">
+                    1
+                </div>
+
+                <h3>
+                    Sun Heats Land
+                </h3>
+
+                <p>
+                    Land warms quickly under strong sunlight.
+                </p>
+
+            </div>
+
+
+            <div class="journey-step reveal">
+
+                <div class="step-circle">
+                    2
+                </div>
+
+                <h3>
+                    Air Rises
+                </h3>
+
+                <p>
+                    Warm air becomes less dense and rises upward.
+                </p>
+
+            </div>
+
+
+            <div class="journey-step reveal">
+
+                <div class="step-circle">
+                    3
+                </div>
+
+                <h3>
+                    Moist Air Moves In
+                </h3>
+
+                <p>
+                    Air from over the ocean moves toward the land.
+                </p>
+
+            </div>
+
+
+            <div class="journey-step reveal">
+
+                <div class="step-circle">
+                    4
+                </div>
+
+                <h3>
+                    Clouds Form
+                </h3>
+
+                <p>
+                    Moist air rises, cools and helps clouds develop.
+                </p>
+
+            </div>
+
+
+            <div class="journey-step reveal">
+
+                <div class="step-circle">
+                    5
+                </div>
+
+                <h3>
+                    Rain Falls
+                </h3>
+
+                <p>
+                    Enough condensed water eventually falls as rain.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUIZ -->
+    <section class="section quiz-section" id="quiz">
+
+        <div class="section-heading reveal">
+
+            <div class="number">
+                PART 2
+            </div>
+
+            <h2>
+                Monsoon Challenge
+            </h2>
+
+            <p>
+                You've learned the story. Now let's see how well you can
+                put the pieces together.
+            </p>
+
+        </div>
+
+
+        <div class="quiz-container">
+
+            <div class="quiz-progress">
+
+                <div
+                    class="quiz-progress-bar"
+                    id="progressBar">
+                </div>
+
+            </div>
+
+
+            <!-- QUESTION 1 -->
+            <div
+                class="quiz-card reveal"
+                data-question="0">
+
+                <div class="question-number">
+                    QUESTION 1 OF 5
+                </div>
+
+                <h3>
+                    Why does land usually become hotter than water during the day?
+                </h3>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(0, 0)">
+
+                    Land generally heats up faster than water.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(0, 1)">
+
+                    Water cannot absorb sunlight.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(0, 2)">
+
+                    Land is always closer to the Sun.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(0, 3)">
+
+                    Wind makes land hotter.
+
+                </button>
+
+                <div class="quiz-feedback"></div>
+
+            </div>
+
+
+            <!-- QUESTION 2 -->
+            <div
+                class="quiz-card reveal"
+                data-question="1">
+
+                <div class="question-number">
+                    QUESTION 2 OF 5
+                </div>
+
+                <h3>
+                    During the summer monsoon, where does much of the moist air come from?
+                </h3>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(1, 0)">
+
+                    From deep underground
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(1, 1)">
+
+                    From the ocean
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(1, 2)">
+
+                    From mountains only
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(1, 3)">
+
+                    From deserts only
+
+                </button>
+
+                <div class="quiz-feedback"></div>
+
+            </div>
+
+
+            <!-- QUESTION 3 -->
+            <div
+                class="quiz-card reveal"
+                data-question="2">
+
+                <div class="question-number">
+                    QUESTION 3 OF 5
+                </div>
+
+                <h3>
+                    What happens to warm air over strongly heated land?
+                </h3>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(2, 0)">
+
+                    It sinks immediately.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(2, 1)">
+
+                    It turns into soil.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(2, 2)">
+
+                    It rises.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(2, 3)">
+
+                    It freezes.
+
+                </button>
+
+                <div class="quiz-feedback"></div>
+
+            </div>
+
+
+            <!-- QUESTION 4 -->
+            <div
+                class="quiz-card reveal"
+                data-question="3">
+
+                <div class="question-number">
+                    QUESTION 4 OF 5
+                </div>
+
+                <h3>
+                    What is one major result of the summer monsoon?
+                </h3>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(3, 0)">
+
+                    More rainfall
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(3, 1)">
+
+                    Permanent snowfall everywhere
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(3, 2)">
+
+                    No clouds at all
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(3, 3)">
+
+                    The oceans disappear
+
+                </button>
+
+                <div class="quiz-feedback"></div>
+
+            </div>
+
+
+            <!-- QUESTION 5 -->
+            <div
+                class="quiz-card reveal"
+                data-question="4">
+
+                <div class="question-number">
+                    QUESTION 5 OF 5
+                </div>
+
+                <h3>
+                    What is special about monsoon winds?
+                </h3>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(4, 0)">
+
+                    They never change direction.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(4, 1)">
+
+                    They only occur at night.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(4, 2)">
+
+                    They change direction with the seasons.
+
+                </button>
+
+                <button
+                    class="option"
+                    onclick="answerQuestion(4, 3)">
+
+                    They only exist above mountains.
+
+                </button>
+
+                <div class="quiz-feedback"></div>
+
+            </div>
+
+
+            <!-- SCORE -->
+            <div
+                class="score-box"
+                id="scoreBox">
+
+                <h2>
+                    Challenge Complete
+                </h2>
+
+                <div
+                    class="score-number"
+                    id="scoreNumber">
+
+                    0/5
+
+                </div>
+
+                <p id="scoreMessage"></p>
+
+                <button
+                    class="restart-button"
+                    onclick="restartQuiz()">
+
+                    Try Again
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            <strong>
+                Monsoon Winds
+            </strong>
+            — Grade 7 Social Science Learning Hub
+        </p>
+
+        <p>
+            Keep asking questions. Geography gets much more interesting when you do.
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        /* =====================================
+           MONSOON TOGGLE
+        ===================================== */
+
+        const monsoonContent =
+            document.getElementById("monsoonContent");
+
+        const monsoonText =
+            document.getElementById("monsoonText");
+
+        const summerButton =
+            document.getElementById("summerButton");
+
+        const winterButton =
+            document.getElementById("winterButton");
+
+
+        function showMonsoon(type) {
+
+            monsoonText.classList.remove(
+                "content-animation"
+            );
+
+            void monsoonText.offsetWidth;
+
+            monsoonText.classList.add(
+                "content-animation"
+            );
+
+
+            if (type === "summer") {
+
+                summerButton.classList.add("active");
+
+                winterButton.classList.remove("active");
+
+                monsoonContent.className =
+                    "monsoon-content summer";
+
+
+                monsoonText.innerHTML = `
+
+                    <h2 class="monsoon-title">
+                        Summer Monsoon: The Rain-Bringer
+                    </h2>
+
+                    <p>
+                        During summer, the land becomes much hotter than the
+                        nearby ocean. The hot air above the land rises, creating
+                        lower pressure near the surface.
+                    </p>
+
+                    <p>
+                        Air from over the ocean moves toward the warmer land.
+                        Because this air has travelled over the sea, it carries
+                        lots of water vapour with it.
+                    </p>
+
+                    <p>
+                        As this moist air rises and cools, water vapour can
+                        condense into clouds. When enough water collects,
+                        we get rainfall.
+                    </p>
+
+                    <div class="fact-row">
+
+                        <div class="fact">
+                            <strong>Direction</strong>
+                            Sea toward land
+                        </div>
+
+                        <div class="fact">
+                            <strong>Air</strong>
+                            Moist and humid
+                        </div>
+
+                        <div class="fact">
+                            <strong>Result</strong>
+                            More rainfall
+                        </div>
+
+                    </div>
+                `;
+
+            } else {
+
+                summerButton.classList.remove("active");
+
+                winterButton.classList.add("active");
+
+                monsoonContent.className =
+                    "monsoon-content winter";
+
+
+                monsoonText.innerHTML = `
+
+                    <h2 class="monsoon-title">
+                        Winter Monsoon: The Drier Season
+                    </h2>
+
+                    <p>
+                        When winter arrives, the land cools down faster than
+                        the ocean. The temperature pattern has now flipped.
+                    </p>
+
+                    <p>
+                        Cooler air over the land tends to create higher pressure.
+                        Air can then move away from the land toward the ocean.
+                    </p>
+
+                    <p>
+                        Since this air generally travels from land rather than
+                        across a warm ocean first, it is often much drier.
+                        That is why many places experience a much drier season.
+                    </p>
+
+                    <div class="fact-row">
+
+                        <div class="fact">
+                            <strong>Direction</strong>
+                            Land toward sea
+                        </div>
+
+                        <div class="fact">
+                            <strong>Air</strong>
+                            Generally drier
+                        </div>
+
+                        <div class="fact">
+                            <strong>Result</strong>
+                            Less rainfall in many areas
+                        </div>
+
+                    </div>
+                `;
+            }
+        }
+
+
+        /* =====================================
+           QUIZ
+        ===================================== */
+
+        const correctAnswers =
+            [0, 1, 2, 0, 2];
+
+        let score = 0;
+
+        let answeredQuestions = 0;
+
+        let questionAnswered =
+            [false, false, false, false, false];
+
+
+        function answerQuestion(
+            questionIndex,
+            selectedOption
+        ) {
+
+            if (questionAnswered[questionIndex]) {
+                return;
+            }
+
+            questionAnswered[questionIndex] = true;
+
+            answeredQuestions++;
+
+
+            const card =
+                document.querySelector(
+                    `.quiz-card[data-question="${questionIndex}"]`
+                );
+
+
+            const options =
+                card.querySelectorAll(".option");
+
+
+            const feedback =
+                card.querySelector(".quiz-feedback");
+
+
+            options.forEach(option => {
+
+                option.classList.add("disabled");
+
+            });
+
+
+            if (
+                selectedOption ===
+                correctAnswers[questionIndex]
+            ) {
+
+                options[selectedOption]
+                    .classList.add("correct");
+
+
+                feedback.textContent =
+                    "Correct. Nice work — you connected the idea!";
+
+
+                feedback.style.color =
+                    "#248052";
+
+
+                score++;
+
+            } else {
+
+                options[selectedOption]
+                    .classList.add("incorrect");
+
+
+                options[
+                    correctAnswers[questionIndex]
+                ].classList.add("correct");
+
+
+                feedback.textContent =
+                    "Not quite. The green answer shows the idea to remember.";
+
+
+                feedback.style.color =
+                    "#a13c3c";
+            }
+
+
+            updateProgress();
+
+
+            if (answeredQuestions === 5) {
+
+                setTimeout(
+                    showScore,
+                    500
+                );
+
+            }
+
+        }
+
+
+        function updateProgress() {
+
+            const percentage =
+                (answeredQuestions / 5) * 100;
+
+
+            document.getElementById(
+                "progressBar"
+            ).style.width =
+                percentage + "%";
+
+        }
+
+
+        function showScore() {
+
+            const scoreBox =
+                document.getElementById(
+                    "scoreBox"
+                );
+
+
+            const scoreNumber =
+                document.getElementById(
+                    "scoreNumber"
+                );
+
+
+            const scoreMessage =
+                document.getElementById(
+                    "scoreMessage"
+                );
+
+
+            scoreNumber.textContent =
+                `${score}/5`;
+
+
+            if (score === 5) {
+
+                scoreMessage.textContent =
+                    "Fantastic work. You have really understood how heating, air pressure and seasonal winds fit together. That is exactly the kind of geographical thinking we want to see.";
+
+            } else if (score >= 3) {
+
+                scoreMessage.textContent =
+                    "Great job. You have got the main monsoon ideas down. A quick review of the two seasons will make the whole picture even clearer.";
+
+            } else {
+
+                scoreMessage.textContent =
+                    "Good effort. Monsoons can seem confusing at first because several things happen at once. Go back through the lesson, then give the challenge another shot.";
+
+            }
+
+
+            scoreBox.classList.add("show");
+
+
+            setTimeout(() => {
+
+                scoreBox.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+            }, 100);
+
+        }
+
+
+        function restartQuiz() {
+
+            score = 0;
+
+            answeredQuestions = 0;
+
+            questionAnswered =
+                [false, false, false, false, false];
+
+
+            document.getElementById(
+                "progressBar"
+            ).style.width = "0%";
+
+
+            document.getElementById(
+                "scoreBox"
+            ).classList.remove("show");
+
+
+            const cards =
+                document.querySelectorAll(
+                    ".quiz-card"
+                );
+
+
+            cards.forEach(card => {
+
+                const options =
+                    card.querySelectorAll(
+                        ".option"
+                    );
+
+
+                const feedback =
+                    card.querySelector(
+                        ".quiz-feedback"
+                    );
+
+
+                options.forEach(option => {
+
+                    option.classList.remove(
+                        "correct",
+                        "incorrect",
+                        "disabled"
+                    );
+
+                });
+
+
+                feedback.textContent = "";
+
+            });
+
+
+            document.getElementById(
+                "quiz"
+            ).scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }
+
+
+        /* =====================================
+           SCROLL REVEAL ANIMATION
+        ===================================== */
+
+        const revealElements =
+            document.querySelectorAll(
+                ".reveal"
+            );
+
+
+        const observer =
+            new IntersectionObserver(
+                entries => {
+
+                    entries.forEach(entry => {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add(
+                                "visible"
+                            );
+
+
+                            observer.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+    </script>
+
+</body>
+</html>
